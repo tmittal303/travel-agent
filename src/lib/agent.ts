@@ -94,7 +94,7 @@ export interface AgentResult {
 
 	export async function runTravelAgent(userQuery: string): Promise<AgentResult> {
 	  console.log("[agent] runTravelAgent started");
-	 const messages = [
+	const messages: Anthropic.MessageParam[] = [
   { role: "user", content: userQuery },
 ];
 
@@ -142,10 +142,10 @@ export interface AgentResult {
         // Claude returned text but no array — ask it again explicitly
         steps.push("No JSON array found, retrying with explicit instruction...");
         messages.push({ role: "assistant", content: response.content });
-        messages.push({
-          role: "user",
-          content: "Your response must be a raw JSON array only. Output the deals array now, starting with [ and ending with ]. No other text.",
-        });
+messages.push({
+  role: "user" as const,
+  content: "Your response must be a raw JSON array only. Output the deals array now, starting with [ and ending with ]. No other text.",
+});
         continue;
       }
 
