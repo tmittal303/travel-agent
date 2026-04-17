@@ -2,14 +2,10 @@ import { travelTools } from "./tools/definitions";
 import { getDriveTimes, searchFlights, searchHotels } from "./tools/executors";
 import { tracker } from "./tracking/tracker";
 import { anthropic } from "./anthropic";
-import Anthropic, { MessageParam } from "@anthropic-ai/sdk";
+import Anthropic from "@anthropic-ai/sdk";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
-});
-
-const messages: MessageParam[] = [
-  { role: "user", content: "Plan my trip" }
+const messages = [
+  { role: "user", content: userQuery }
 ];
 
 const SYSTEM_PROMPT = `You are a last-minute travel deal agent for Canadian travellers departing from Toronto.
