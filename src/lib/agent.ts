@@ -4,9 +4,7 @@ import { tracker } from "./tracking/tracker";
 import { anthropic } from "./anthropic";
 import Anthropic from "@anthropic-ai/sdk";
 
-const messages = [
-  { role: "user", content: userQuery }
-];
+
 
 const SYSTEM_PROMPT = `You are a last-minute travel deal agent for Canadian travellers departing from Toronto.
 
@@ -94,11 +92,11 @@ export interface AgentResult {
   steps: string[]; // log of what the agent did, for transparency
 }
 
-export async function runTravelAgent(userQuery: string): Promise<AgentResult> {
-  console.log("[agent] runTravelAgent started");
-  const messages: Anthropic.MessageParam[] = [
-    { role: "user", content: userQuery },
-  ];
+	export async function runTravelAgent(userQuery: string): Promise<AgentResult> {
+	  console.log("[agent] runTravelAgent started");
+	 const messages = [
+  { role: "user", content: userQuery },
+];
 
   const steps: string[] = [];
   let parsedIntent: any = {};
