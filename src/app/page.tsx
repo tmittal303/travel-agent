@@ -3,13 +3,13 @@ import { useState, useRef, useEffect } from "react";
 import type { Deal, AgentResult } from "@/lib/agent";
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
-const NAVY = "#5C1A2E";
-const NAVY_DARK = "#3D0F1E";
-const NAVY_LIGHT = "#7A2640";
-const GOLD = "#C9A84C";
-const GREY_BG = "#F8F4F0";
+const NAVY = "#1B2A4A";
+const NAVY_DARK = "#111D33";
+const NAVY_LIGHT = "#243660";
+const GOLD = "#0077C8";
+const GREY_BG = "#F4F6F9";
 const WHITE = "#ffffff";
-const TEXT_MUTED = "#8B6A72";
+const TEXT_MUTED = "#6B7A99";
 
 // ─── Travel tab data ──────────────────────────────────────────────────────────
 const CHIPS = [
